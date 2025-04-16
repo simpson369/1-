@@ -1,21 +1,39 @@
-index.html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>自動入力テスト</title>
+  <title>自動入力＆リダイレクト</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    input {
+      font-size: 1.2em;
+      padding: 5px;
+    }
+  </style>
   <script>
     window.onload = function () {
       const input = document.getElementById("stp-input-amount");
       if (input) {
         input.value = "1";
         input.dispatchEvent(new Event('input', { bubbles: true }));
+        console.log("1を自動入力しました");
+
+        // 2秒後にSNPIT swapページにリダイレクト
+        setTimeout(() => {
+          window.location.href = "https://app.snpit.xyz/swap";
+        }, 2000);
+      } else {
+        console.log("入力欄が見つかりませんでした");
       }
     };
   </script>
 </head>
 <body>
-  <h2>自動で「1」が入力されます</h2>
+  <h1>index.html</h1>
+  <p><strong>自動で「1」を入力し、SNPITに移動します</strong></p>
   <input id="stp-input-amount" type="number" placeholder="0" />
 </body>
 </html>

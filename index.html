@@ -1,0 +1,21 @@
+index.html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>自動入力テスト</title>
+  <script>
+    window.onload = function () {
+      const input = document.getElementById("stp-input-amount");
+      if (input) {
+        input.value = "1";
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    };
+  </script>
+</head>
+<body>
+  <h2>自動で「1」が入力されます</h2>
+  <input id="stp-input-amount" type="number" placeholder="0" />
+</body>
+</html>
